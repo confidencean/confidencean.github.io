@@ -2,18 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>留言板</h1>
-      <form id="messageForm">
-        <input type="text" id="messageInput" placeholder="写留言" />
-        <button type="submit">提交</button>
-      </form>
-      <div id="messages" class="messages"></div>
-      <button id="deleteBtn">删除所有留言</button>
+    <div class="calculator">
+      <h2>Carbon Footprint Calculator</h2>
+      <div class="calculator-selector">
+        <button onclick="showTransportCalculator()">Transportation</button>
+        <button onclick="showLifestyleCalculator()">Lifestyle</button>
+      </div>
+      <div id="transportCalculator">
+        <h3>Transportation Footprint Calculator</h3>
+        <div class="input-section">
+          <label for="distance">Distance Travelled (in km):</label>
+          <input type="number" id="distance" placeholder="Enter distance" />
+        </div>
+        <div class="input-section">
+          <label for="vehicle">Vehicle Type:</label>
+          <select id="vehicle">
+            <option value="car">Car</option>
+            <option value="bus">Bus</option>
+            <option value="train">Train</option>
+            <option value="bike">Bike</option>
+            <option value="plane">Plane</option>
+          </select>
+        </div>
+        <button onclick="calculateTransportFootprint()">Calculate</button>
+        <div id="transportResult"></div>
+      </div>
+      <div id="lifestyleCalculator" style="display: none">
+        <h3>Lifestyle Footprint Calculator</h3>
+        <div class="input-section">
+          <label for="electricity">Electricity Usage (kWh):</label>
+          <input type="number" id="electricity" placeholder="Enter kWh" />
+        </div>
+        <div class="input-section">
+          <label for="food">Food Consumption (kg CO2/day):</label>
+          <input type="number" id="food" placeholder="Enter kg CO2/day" />
+        </div>
+        <!-- Add more input fields for water usage, waste production, etc. as needed -->
+        <button onclick="calculateLifestyleFootprint()">Calculate</button>
+        <div id="lifestyleResult"></div>
+      </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
